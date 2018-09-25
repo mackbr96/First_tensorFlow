@@ -37,7 +37,21 @@ predic = new_model.predict([x_test])
 import numpy as np
 import matplotlib.pyplot as plt
 
-print(np.argmax(predic[1]))
 
-plt.imshow(x_test[1])
+#print(np.argmax(predic[1]))
+
+#plt.imshow(x_test[1])
+
+
+predictions = model.predict(x_test)
+for i in range(25):
+    plt.subplot(5,5,i+1)
+    plt.subplots_adjust(hspace=.5)
+    plt.xticks([])
+    plt.yticks([])
+    plt.grid(False)
+    plt.imshow(x_test[i], cmap=plt.cm.binary)
+    plt.xlabel(np.argmax(predictions[i]))
+
+
 plt.show()
